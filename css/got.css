@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'gotfont';
+    src: url('../fonts/got.ttf')  format('truetype')
+  }
+
+body {
+    margin: 0;
+    background-image: url("/assets/site/mapblue.jpg");
+    font-family: 'gotfont', Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+#foundCharacterName {
+    font-size: 1.2rem;
+    padding: 0.75rem 0 0;
+}
+
+#foundCharacterBio {
+    padding: 0.5rem 0;
+    line-height: 1.1rem;
+}
+
+#foundCharacterPicture {
+    width: 15rem;
+}
+
+.mainContainer {
+    display: flex;
+}
+
+.characterContainer {
+    flex-grow: 1;
+}
+
+.sideTab {
+    flex-basis: 15rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 0.5rem;
+    background-color: #959ead;
+}
+
+.gotCharacter {
+    display: inline-flex;
+    text-align: center;
+    margin: 0.5rem;
+    width: 5rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem;
+}
+
+.gotCharacter .portrait {
+    width: 50px;
+}
