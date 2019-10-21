@@ -61,7 +61,11 @@
   }
 
   function showClickedChar(event) {
-    const clickedChar = event.target.textContent || event.target.src.split('/')[4].slice(0, -4)
+    let clickedChar = event.target.textContent || event.target.src.split('/')[4].slice(0, -4)
+    if (clickedChar === 'theon') {
+      clickedChar = 'Theon Greyjoy'
+    }
+    console.log(clickedChar)
     findCharacter(clickedChar)
   }
 
