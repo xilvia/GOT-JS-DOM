@@ -1,5 +1,3 @@
-
-
 // findAll() {
 //   fetch('../json/got.json')
 //     .then(response => {
@@ -52,26 +50,41 @@
       .forEach(character => {
         let characterContainer = getElementForCharacter(character);
         listContainer.appendChild(characterContainer);
+
+        characterContainer.addEventListener('mouseover', onMouseOverHandler)
+        characterContainer.addEventListener('click', showClickedChar)
+
       });
-    const characterListContainer = document.getElementById('characterListContainer');
+    const characterListContainer = document.getElementById('characterListContainer')
     characterListContainer.innerHTML = '';
     characterListContainer.appendChild(listContainer);
+  }
+
+  function showClickedChar(event) {
+    const clickedChar = event.target.textContent || event.target.src.split('/')[4].slice(0, -4)
+    findCharacter(clickedChar)
   }
 
   function showFoundCharacter(character) {
     let foundCharacterName = document.getElementById('foundCharacterName');
     let foundCharacterPicture = document.getElementById('foundCharacterPicture');
     let foundCharacterBio = document.getElementById('foundCharacterBio');
-    let foundCharacterBadge = document.getElementById('foundCharacterBadge');
+    let foundCharacterOrg = document.getElementById('foundCharacterOrg');
+    let foundCharacterHouse = document.getElementById('foundCharacterHouse');
+
 
     if (character) {
       foundCharacterPicture.src = character.picture;
-      foundCharacterBadge.src = character.house ? 'assets/houses/' + character.house + '.png' : '';
+      foundCharacterOrg.src =
+        character.organization ? 'assets/houses/' + character.organization + '.png' : '';
+      foundCharacterHouse.src =
+        character.house ? 'assets/houses/' + character.house + '.png' : '';
       foundCharacterName.innerText = character.name;
       foundCharacterBio.innerText = character.bio;
     } else {
       foundCharacterPicture.src = '';
-      foundCharacterBadge.src = '';
+      foundCharacterOrg.src = '';
+      foundCharacterHouse.src = '';
       foundCharacterName.innerText = 'Character not found';
       foundCharacterBio.innerText = '';
     }
@@ -82,6 +95,7 @@
       return character.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
     });
     showFoundCharacter(character);
+    resetSearchInput();
   }
 
   function loadData() {
@@ -98,8 +112,20 @@
 
   function searchButtonClickHandler(e) {
     e.preventDefault();
-    const nameToFind = inputField.value
-    findCharacter(nameToFind)
+    let nameToFind = inputField.value;
+    !inputField.value ? nameToFind = '*' : '';
+    findCharacter(nameToFind);
+  }
+
+  function resetSearchInput() {
+    inputField.value = '';
+  }
+
+  function onMouseOverHandler(event) {
+    event.target.style.color = "red"
+    setTimeout(() => {
+      event.target.style.color = "black";
+    }, 100)
   }
 
   window.addEventListener('load', () => {
@@ -109,6 +135,3 @@
     loadData();
   });
 }())
-
-
-

@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'gotfont';
-    src: url('../fonts/got.ttf')  format('truetype')
-  }
+    src: url('../fonts/got.ttf') format('truetype')
+}
 
 body {
     margin: 0;
@@ -24,12 +24,18 @@ body {
     width: 15rem;
 }
 
+/* #searchForm {
+    margin-bottom: 0rem;
+} */
+
 .mainContainer {
     display: flex;
 }
 
 .characterContainer {
+    margin-top: 3rem;
     flex-grow: 1;
+    height: 40rem;
 }
 
 .sideTab {
@@ -47,9 +53,13 @@ body {
     width: 5rem;
     flex-direction: column;
     align-items: center;
-    padding: 0.25rem;
+    padding: 0.3rem;
 }
 
 .gotCharacter .portrait {
     width: 50px;
+}
+
+#title {
+    text-align: center;
 }
