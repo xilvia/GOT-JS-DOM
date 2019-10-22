@@ -51,7 +51,7 @@
         let characterContainer = getElementForCharacter(character);
         listContainer.appendChild(characterContainer);
 
-        characterContainer.addEventListener('mouseover', onMouseOverHandler)
+        //characterContainer.addEventListener('mouseover', onMouseOverHandler)
         characterContainer.addEventListener('click', showClickedChar)
 
       });
@@ -65,7 +65,6 @@
     if (clickedChar === 'theon') {
       clickedChar = 'Theon Greyjoy'
     }
-    console.log(clickedChar)
     findCharacter(clickedChar)
   }
 
@@ -125,12 +124,12 @@
     inputField.value = '';
   }
 
-  function onMouseOverHandler(event) {
-    event.target.style.color = "red"
-    setTimeout(() => {
-      event.target.style.color = "black";
-    }, 100)
-  }
+  // function onMouseOverHandler(event) {
+  //   event.target.style.color = "red"
+  //   setTimeout(() => {
+  //     event.target.style.color = "black";
+  //   }, 100)
+  // }
 
   window.addEventListener('load', () => {
     inputField = document.getElementById('searchInput');

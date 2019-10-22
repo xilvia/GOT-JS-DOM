@@ -61,6 +61,11 @@ body {
     width: 55px;
 }
 
+.gotCharacter:hover {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
 #title {
     text-align: center;
 }
