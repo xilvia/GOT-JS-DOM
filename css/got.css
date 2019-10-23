@@ -66,6 +66,11 @@ body {
     filter: invert(100%);
 }
 
+.showSelectedChar {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
 #title {
     text-align: center;
 }

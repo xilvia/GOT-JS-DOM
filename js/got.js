@@ -51,9 +51,7 @@
         let characterContainer = getElementForCharacter(character);
         listContainer.appendChild(characterContainer);
 
-        //characterContainer.addEventListener('mouseover', onMouseOverHandler)
         characterContainer.addEventListener('click', showClickedChar)
-
       });
     const characterListContainer = document.getElementById('characterListContainer')
     characterListContainer.innerHTML = '';
@@ -61,9 +59,15 @@
   }
 
   function showClickedChar(event) {
-    let clickedChar = event.target.textContent || event.target.src.split('/')[4].slice(0, -4)
+    let clickedChar = event.target.textContent || event.target.src.split('/')[4].slice(0, -4);
     if (clickedChar === 'theon') {
       clickedChar = 'Theon Greyjoy'
+    }
+    if (clickedChar === event.target.textContent || event.target.src.split('/')[4].slice(0, -4)) {
+      // [].forEach.call()
+      gotData.forEach.call(document.getElementsByClassName('showSelectedChar'),
+        called => called.classList.remove('showSelectedChar'))
+      event.target.parentElement.classList.add('showSelectedChar');
     }
     findCharacter(clickedChar)
   }
@@ -123,13 +127,6 @@
   function resetSearchInput() {
     inputField.value = '';
   }
-
-  // function onMouseOverHandler(event) {
-  //   event.target.style.color = "red"
-  //   setTimeout(() => {
-  //     event.target.style.color = "black";
-  //   }, 100)
-  // }
 
   window.addEventListener('load', () => {
     inputField = document.getElementById('searchInput');
