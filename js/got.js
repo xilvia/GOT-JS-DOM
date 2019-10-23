@@ -69,7 +69,7 @@
         called => called.classList.remove('showSelectedChar'))
       event.target.parentElement.classList.add('showSelectedChar');
     }
-    findCharacter(clickedChar)
+    showCharacter(clickedChar)
   }
 
   function showFoundCharacter(character) {
@@ -97,7 +97,16 @@
     }
   }
 
+  function showCharacter(name) {
+    let character = gotData.find(character => {
+      return character.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
+    });
+    showFoundCharacter(character);
+  }
+
   function findCharacter(name) {
+    gotData.forEach.call(document.getElementsByClassName('showSelectedChar'),
+      called => called.classList.remove('showSelectedChar'))
     let character = gotData.find(character => {
       return character.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
     });
