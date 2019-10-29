@@ -64,10 +64,14 @@
       clickedChar = 'Theon Greyjoy'
     }
     if (clickedChar === event.target.textContent || event.target.src.split('/')[4].slice(0, -4)) {
+      console.log(clickedChar)
       // [].forEach.call()
-      gotData.forEach.call(document.getElementsByClassName('showSelectedChar'),
-        called => called.classList.remove('showSelectedChar'))
-      event.target.parentElement.classList.add('showSelectedChar');
+      // gotData.forEach.call(document.getElementsByClassName('showSelectedChar'),
+      //   called => called.classList.remove('showSelectedChar'))
+
+      Array.from(document.getElementsByClassName('showSelectedChar')).filter(char => char.classList.remove('showSelectedChar')),
+
+        event.target.parentElement.classList.add('showSelectedChar');
     }
     showCharacter(clickedChar)
   }
@@ -105,8 +109,8 @@
   }
 
   function findCharacter(name) {
-    gotData.forEach.call(document.getElementsByClassName('showSelectedChar'),
-      called => called.classList.remove('showSelectedChar'))
+    Array.from(document.getElementsByClassName('showSelectedChar')).filter(char => char.classList.remove('showSelectedChar'));
+
     let character = gotData.find(character => {
       return character.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
     });
